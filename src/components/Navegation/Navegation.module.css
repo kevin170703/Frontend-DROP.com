@@ -1,0 +1,46 @@
+.contentAll {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.contentAll h1 {
+  margin-bottom: 4rem;
+}
+
+.search {
+  cursor: pointer;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.search input {
+  width: 80%;
+  padding-left: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.search input::placeholder {
+  color: #fff;
+}
+
+.menus {
+  width: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.menus p {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
