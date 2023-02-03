@@ -1,0 +1,31 @@
+.contetAll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.contetAll h5 {
+  font-size: 1.2rem;
+}
+
+.contetAll p {
+  color: #666;
+}
+
+.contentText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+}
+
+.moreOptions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-right: 2rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
