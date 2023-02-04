@@ -6,10 +6,13 @@ import { NavLink } from "react-router-dom";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
+import Swal from "sweetalert2";
+import NavBar from "../NavBar/NavBar";
 
 export default function Home() {
   return (
     <div className={style.contentAll}>
+      <NavBar />
       <div className={style.contentPresentation}>
         <div className={style.contentText}>
           <h1>Titulo</h1>
