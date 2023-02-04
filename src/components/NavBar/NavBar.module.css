@@ -1,0 +1,12 @@
+.contentAll {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buutons {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-right: 2rem;
+}
