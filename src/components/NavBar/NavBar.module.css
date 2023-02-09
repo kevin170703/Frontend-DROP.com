@@ -10,3 +10,9 @@
   font-size: 1.2rem;
   margin-right: 2rem;
 }
+
+.profileLogo {
+  color: #fff;
+  margin-right: 4rem;
+  cursor: pointer;
+}
