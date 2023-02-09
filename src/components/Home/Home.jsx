@@ -8,8 +8,11 @@ import { FiMail } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
+import { useSelector } from "react-redux";
 
 export default function Home() {
+  const user = useSelector((state) => state.user);
+
   return (
     <div className={style.contentAll}>
       <NavBar />
@@ -20,9 +23,32 @@ export default function Home() {
             Guarda tus datos, productos, los que desees, de forma facil y
             sensillla.
           </p>
-          <NavLink to="/listProducts" className={style.buutonLestsGo}>
-            Empezar
-          </NavLink>
+          {user.email ? (
+            <NavLink to="/listProducts" className={style.buutonLestsGo}>
+              Empezar
+            </NavLink>
+          ) : (
+            <button
+              className={style.buutonLestsGo}
+              onClick={() =>
+                Swal.fire({
+                  icon: "error",
+                  title: `debes iniciar sesion o crear un cuenta antes de empezar`,
+                  showCancelButton: true,
+                  confirmButtonText: "Iniciar sesion",
+                  cancelButtonText: "Crear cuenta",
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    window.location.href = "/login";
+                  } else if (result.isDismissed) {
+                    window.location.href = "/register";
+                  }
+                })
+              }
+            >
+              Empezar
+            </button>
+          )}
         </div>
         <img src={DataIamge} alt="" />
         <div className={style.networks}>
