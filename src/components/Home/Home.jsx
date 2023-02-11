@@ -2,12 +2,12 @@ import React from "react";
 import style from "./Home.module.css";
 import DataIamge from "../../images/DataImage.svg";
 import dashboard from "../../images/dashboard.png";
-import { NavLink } from "react-router-dom";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Home() {
