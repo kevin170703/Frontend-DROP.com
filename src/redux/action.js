@@ -39,3 +39,19 @@ export const login = (data) => {
     }
   };
 };
+
+export const searchProductsforUser = (id) => {
+  console.log(id, "acaaaaaaaaaaas");
+  return async function (distpach) {
+    const { data } = await axios.get(
+      `http://localhost:3001/productsByIdUser/${id}`
+    );
+    return distpach({ type: "SEARCH_PRODUCTS_USER", payload: data });
+  };
+};
+
+export const deleteProduct = (id) => {
+  return async function (distpach) {
+    await axios.delete(`http://localhost:3001/products/${id}`);
+  };
+};
