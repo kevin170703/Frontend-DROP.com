@@ -25,3 +25,15 @@
   align-items: center;
   width: 310px;
 }
+
+.contentMsj {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentMsj h6 {
+  margin: 0;
+  text-align: center;
+}
