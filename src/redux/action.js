@@ -41,7 +41,6 @@ export const login = (data) => {
 };
 
 export const searchProductsforUser = (id) => {
-  console.log(id, "acaaaaaaaaaaas");
   return async function (distpach) {
     const { data } = await axios.get(
       `http://localhost:3001/productsByIdUser/${id}`
@@ -53,5 +52,11 @@ export const searchProductsforUser = (id) => {
 export const deleteProduct = (id) => {
   return async function (distpach) {
     await axios.delete(`http://localhost:3001/products/${id}`);
+  };
+};
+
+export const createProduct = (data) => {
+  return async function (distpach) {
+    await axios.post(`http://localhost:3001/products`, data);
   };
 };
