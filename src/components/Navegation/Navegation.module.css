@@ -28,6 +28,17 @@
   );
 }
 
+.buttonBack {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: 0.2rem;
+  top: 50px;
+  left: 0;
+}
+
 .search {
   cursor: pointer;
   width: 150px;
@@ -56,6 +67,8 @@
 }
 
 .menus {
+  color: #fff;
+  text-decoration: none;
   width: 250px;
   display: flex;
   align-items: center;
