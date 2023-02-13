@@ -111,7 +111,6 @@ export default function Register() {
 
         <button
           type="submit"
-          to="/login"
           className={
             !errors.userName &&
             !errors.email &&
