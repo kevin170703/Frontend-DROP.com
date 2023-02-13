@@ -24,7 +24,7 @@ export default function Home() {
             sensillla.
           </p>
           {user.email ? (
-            <NavLink to="/listProducts" className={style.buutonLestsGo}>
+            <NavLink to="/dashboard" className={style.buutonLestsGo}>
               Empezar
             </NavLink>
           ) : (
