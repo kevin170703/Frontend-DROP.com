@@ -44,7 +44,10 @@ export default function Home() {
               Empezar
             </motion.button>
           ) : (
-            <button
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, scale: [0.5, 1.1, 1] }}
+              transition={{ delay: 1, duration: 0.8 }}
               className={style.buutonLestsGo}
               onClick={() => {
                 Swal.fire({
@@ -62,32 +65,36 @@ export default function Home() {
                 });
               }}
             >
-              Empezar
-            </button>
+              Go
+            </motion.button>
           )}
         </div>
-        {/* <img src={Data} alt="" /> */}
         <div className={style.networks}>
-          <a
+          <motion.a
             href="https://www.linkedin.com/in/kevin-correa-dev/"
             target="_blank"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
             <FaLinkedinIn size="30" />
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="mailto:correakevinfabian01@gmail.com"
             target="_BLANK"
             rel="noopener noreferrer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
             <FiMail size="30" />
-          </a>
+          </motion.a>
         </div>
         <IoIosArrowDown size="30" className={style.arrow} />
       </div>
+      {/* /-------------Info-------------------------/ */}
       <div className={style.info}>
         <motion.div
           className={style.contentInfo}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 1 }}
@@ -102,10 +109,10 @@ export default function Home() {
           src={dashboard}
           alt="Dashboard image"
           className={style.contentInfo}
-          initial={{ opacity: 0, scale: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         />
       </div>
     </div>
