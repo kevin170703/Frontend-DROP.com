@@ -3,6 +3,7 @@ import style from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function NavBar() {
   const user = useSelector((state) => state.user);
