@@ -3,6 +3,7 @@ import style from "./ContentList.module.css";
 import Products from "../Products/Products";
 import { useDispatch, useSelector } from "react-redux";
 import { searchProductsforUser } from "../../redux/action";
+import { motion } from "framer-motion";
 
 export default function ContentList() {
   const user = useSelector((state) => state.user);
@@ -15,7 +16,12 @@ export default function ContentList() {
 
   if (!user.email) return <h1>ERROR</h1>;
   return (
-    <div className={style.contentList}>
+    <motion.div
+      className={style.contentList}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+    >
       <h6>Datos guardados</h6>
       <div className={style.referencies}>
         <div className={style.contentText}>
@@ -43,6 +49,6 @@ export default function ContentList() {
           />
         ))
       )}
-    </div>
+    </motion.div>
   );
 }
