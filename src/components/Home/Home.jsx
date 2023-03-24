@@ -30,8 +30,7 @@ export default function Home() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Guarda tus datos, productos, los que desees, de forma facil y
-            sensillla.
+            Un lugar donde puedes guardar datos manera fácil.
           </motion.p>
           {user.email ? (
             <motion.button
