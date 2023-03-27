@@ -1,13 +1,12 @@
 import React from "react";
 import style from "./Home.module.css";
-import { motion, useScroll } from "framer-motion";
 import dashboard from "../../images/dashboard.png";
+import Swal from "sweetalert2";
+import NavBar from "../NavBar/NavBar";
+import { motion } from "framer-motion";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
-import Swal from "sweetalert2";
-import NavBar from "../NavBar/NavBar";
-
 import { useSelector } from "react-redux";
 
 export default function Home() {
@@ -68,6 +67,7 @@ export default function Home() {
             </motion.button>
           )}
         </div>
+
         <div className={style.networks}>
           <motion.a
             href="https://www.linkedin.com/in/kevin-correa-dev/"
@@ -89,7 +89,9 @@ export default function Home() {
         </div>
         <IoIosArrowDown size="30" className={style.arrow} />
       </div>
+
       {/* /-------------Info-------------------------/ */}
+
       <div className={style.info}>
         <motion.div
           className={style.contentInfo}
