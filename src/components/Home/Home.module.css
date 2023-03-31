@@ -20,13 +20,35 @@
   width: 50%;
 }
 
-.contentText h1 {
+.title {
   margin: 0;
   font-size: 4rem;
   background-color: transparent;
   background: linear-gradient(rgba(0, 241, 237, 1), rgba(0, 241, 237, 0));
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.titleAnimation {
+  margin: 0;
+  font-size: 4rem;
+  background-color: transparent;
+  background: linear-gradient(rgba(0, 241, 237, 1), rgba(0, 241, 237, 0));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: scale(0.5);
+  animation: scale-down-top-left 0.4s forwards;
+}
+
+@keyframes scale-down-top-left {
+  0% {
+    transform: scale(1);
+    transform-origin: left top;
+  }
+  100% {
+    transform: scale(0.5);
+    transform-origin: left top;
+  }
 }
 
 .contentText p {
