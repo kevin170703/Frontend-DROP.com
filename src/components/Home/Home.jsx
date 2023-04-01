@@ -4,7 +4,7 @@ import style from "./Home.module.css";
 import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
 
-//Icons
+//media
 import { FaLinkedinIn, FaWindows } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
@@ -16,12 +16,14 @@ export default function Home() {
   //Animacion scroll
   const [showTitle, setShowTitle] = useState(true);
   const titleRef = useRef();
+
   useEffect(() => {
     const handelScroll = () => {
       const { y } = titleRef.current.getBoundingClientRect();
-      y > 100 ? setShowTitle(true) : setShowTitle(false);
+      y > 150 ? setShowTitle(true) : setShowTitle(false);
     };
     window.addEventListener("scroll", handelScroll);
+    return () => window.removeEventListener("scroll", handelScroll);
   }, []);
 
   return (

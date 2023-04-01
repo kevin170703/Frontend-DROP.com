@@ -37,7 +37,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transform: scale(0.5);
-  animation: scale-down-top-left 0.4s forwards;
+  animation: scale-down-top-left 0.8s forwards;
 }
 
 @keyframes scale-down-top-left {
