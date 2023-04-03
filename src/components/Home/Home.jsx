@@ -9,6 +9,7 @@ import { FaLinkedinIn, FaWindows } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import dashboard from "../../images/dashboard.png";
+import uploadCard from "../../images/uploadCard.png";
 
 export default function Home() {
   const user = useSelector((state) => state.user);
@@ -35,14 +36,15 @@ export default function Home() {
             ref={titleRef}
             className={showTitle ? style.title : style.titleAnimation}
           >
-            Titulo
+            DROP.com
           </h1>
           <p
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Un lugar donde puedes guardar datos manera fácil.
+            Sube tus imagenes de forma rapida para compartirlas en varios
+            dispositivos.
           </p>
           {user.email ? (
             <button
@@ -76,9 +78,12 @@ export default function Home() {
                 });
               }}
             >
-              Go
+              Empezar
             </button>
           )}
+        </div>
+        <div className={style.contentImg}>
+          <img src={uploadCard} alt="" />
         </div>
 
         <div className={style.networks}>
@@ -100,7 +105,7 @@ export default function Home() {
             <FiMail size="30" />
           </a>
         </div>
-        <IoIosArrowDown size="30" className={style.arrow} />
+        {/* <IoIosArrowDown size="30" className={style.arrow} /> */}
       </div>
 
       {/* /-------------Info-------------------------/ */}
