@@ -10,16 +10,28 @@ export default function NavBar() {
 
   return (
     <div className={style.contentAll}>
+      <div className={style.contentNavegation}>
+        <NavLink to="/" className={style.title}>
+          DROP.com
+        </NavLink>
+        <NavLink to="/" className={style.navegationLinks}>
+          Inicio
+        </NavLink>
+        <NavLink to="/" className={style.navegationLinks}>
+          Panel
+        </NavLink>
+      </div>
+
       {user.email ? (
         <NavLink to="/profile">
           <FaUserAlt size="30" className={style.profileLogo} />
         </NavLink>
       ) : (
         <div>
-          <NavLink to="/login" className={style.buutons}>
+          <NavLink to="/login" className={style.buutonLogin}>
             Iniciar sesion
           </NavLink>
-          <NavLink to="/register" className={style.buutons}>
+          <NavLink to="/register" className={style.buutonRegister}>
             Registrate
           </NavLink>
         </div>
