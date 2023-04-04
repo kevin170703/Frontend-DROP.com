@@ -7,34 +7,40 @@ import { TbPhoto } from "react-icons/tb";
 import { TbPhotoPlus } from "react-icons/tb";
 import { RiHomeLine } from "react-icons/ri";
 
-export default function Navegation() {
+export default function Navegation({ perfile, myPhotos, uploadPhotos }) {
   return (
     <div className={style.contentAll}>
       <NavLink to="/" className={style.buttonBack}>
         <BiLeftArrowAlt size="40" />
       </NavLink>
 
-      {/* <div className={style.menus}>
-        <CiCircleList size="35" />
-        <p>Lista de productos</p>
-      </div> */}
       <div className={style.contentButtonsData}>
-        <NavLink to="/perfil/:id" className={style.menus}>
+        <NavLink
+          to="/perfil/:id"
+          className={perfile ? style.titleLinkActive : style.links}
+        >
           <FaRegUser size="35" />
-          <p>Perfil</p>
+          <p className={style.titleLink}>Perfil</p>
         </NavLink>
-        <NavLink to="/MyPhoto" className={style.menus}>
+        <NavLink
+          to="/MyPhoto"
+          className={myPhotos ? style.titleLinkActive : style.links}
+        >
           <TbPhoto size="35" />
-          <p>Mis fotos</p>
+          <p className={style.titleLink}>Mis fotos</p>
         </NavLink>
-        <NavLink to="/uploadPhoto" className={style.menus}>
+        <NavLink
+          to="/uploadPhoto"
+          className={uploadPhotos ? style.titleLinkActive : style.links}
+        >
           <TbPhoto size="35" />
           <p>Subir fotos</p>
         </NavLink>
+
         <div className={style.navegationButtons}>
-          <NavLink to="/" className={style.menus}>
+          <NavLink to="/" className={style.links}>
             <RiHomeLine size="35" />
-            <p>Home</p>
+            <p className={style.titleLink}>Home</p>
           </NavLink>
         </div>
       </div>

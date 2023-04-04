@@ -1,6 +1,6 @@
 .contentAll {
   width: 200px;
-  height: 95%;
+  height: 95vh;
   border-top-right-radius: 40px;
   margin-top: 3rem;
   display: flex;
@@ -31,7 +31,7 @@
   width: 180px;
 }
 
-.menus {
+.links {
   text-decoration: none;
   width: 150px;
   display: flex;
@@ -40,7 +40,22 @@
   color: #222;
 }
 
-.menus p {
+.titleLinkActive {
+  text-decoration: none;
+  width: 150px;
+  position: relative;
+  margin-left: -3rem;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  color: #2c8cf8;
+  background-color: #eff7ff;
+  border-radius: 20px;
+}
+
+.links p,
+.titleLinkActive p {
   font-size: 1.2rem;
   margin-left: 1rem;
 }
