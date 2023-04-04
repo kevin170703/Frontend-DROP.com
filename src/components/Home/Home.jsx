@@ -46,41 +46,6 @@ export default function Home() {
             Sube tus imagenes de forma rapida para compartirlas en varios
             dispositivos.
           </p>
-          {user.email ? (
-            <button
-              onClick={() => (window.location.href = "/dashboard")}
-              className={style.buutonLestsGo}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, scale: [0.5, 1.1, 1] }}
-              transition={{ delay: 1, duration: 0.8 }}
-            >
-              Empezar
-            </button>
-          ) : (
-            <button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, scale: [0.5, 1.1, 1] }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className={style.buutonLestsGo}
-              onClick={() => {
-                Swal.fire({
-                  icon: "error",
-                  title: `debes iniciar sesion o crear un cuenta antes de empezar`,
-                  showCancelButton: true,
-                  confirmButtonText: "Iniciar sesion",
-                  cancelButtonText: "Crear cuenta",
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    window.location.href = "/login";
-                  } else if (result.isDismissed) {
-                    window.location.href = "/register";
-                  }
-                });
-              }}
-            >
-              Empezar
-            </button>
-          )}
         </div>
         <div className={style.contentImg}>
           <img src={uploadCard} alt="" />
