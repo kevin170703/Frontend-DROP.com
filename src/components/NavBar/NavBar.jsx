@@ -17,13 +17,13 @@ export default function NavBar() {
         <NavLink to="/" className={style.navegationLinks}>
           Inicio
         </NavLink>
-        <NavLink to="/" className={style.navegationLinks}>
-          Panel
+        <NavLink to="/uploadPhoto" className={style.navegationLinks}>
+          Empezar
         </NavLink>
       </div>
 
       {user.email ? (
-        <NavLink to="/profile">
+        <NavLink to="/profile/:id">
           <FaUserAlt size="30" className={style.profileLogo} />
         </NavLink>
       ) : (
