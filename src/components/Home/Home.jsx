@@ -8,7 +8,7 @@ import NavBar from "../NavBar/NavBar";
 import { FaLinkedinIn, FaWindows } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
-import dashboard from "../../images/dashboard.png";
+import panelImg from "../../images/panel.png";
 import uploadCard from "../../images/uploadCard.png";
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
   useEffect(() => {
     const handelScroll = () => {
       const { y } = titleRef.current.getBoundingClientRect();
-      y > 150 ? setShowTitle(true) : setShowTitle(false);
+      y > 10 ? setShowTitle(true) : setShowTitle(false);
     };
     window.addEventListener("scroll", handelScroll);
     return () => window.removeEventListener("scroll", handelScroll);
@@ -38,16 +38,14 @@ export default function Home() {
           >
             DROP.com
           </h1>
-          <p
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
+          <p className={showTitle ? style.subtitle : style.subtitleAnimation}>
             Sube tus imagenes de forma rapida para compartirlas en varios
             dispositivos.
           </p>
         </div>
-        <div className={style.contentImg}>
+        <div
+          className={showTitle ? style.contentImg : style.contentImgAnimation}
+        >
           <img src={uploadCard} alt="" />
         </div>
 
@@ -83,21 +81,13 @@ export default function Home() {
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 1 }}
         >
-          <h6>Dashborad facil de usar</h6>
+          <h6>Panel facil de usar</h6>
           <p>
-            Puedes buscar, crear, guardar, editar, eliminar tus datos de manera
-            rapida en un dashboard comodo de utilizar e intutivo.
+            Puedes subir, guardar, ver, descargar de manera rapida en un panel
+            comodo de utilizar e intutivo.
           </p>
         </div>
-        <img
-          src={dashboard}
-          alt="Dashboard image"
-          className={style.contentInfo}
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        />
+        <img src={panelImg} alt="Panel image" className={style.panelImage} />
       </div>
     </div>
   );
