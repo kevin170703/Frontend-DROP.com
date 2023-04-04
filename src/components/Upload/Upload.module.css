@@ -1,0 +1,20 @@
+.contentAll {
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contentAll p {
+  margin: -1rem 0 4rem 0;
+  color: #9f9fa1;
+}
+.contentAll label {
+  cursor: pointer;
+}
+
+.contentAll input {
+  display: none;
+}
