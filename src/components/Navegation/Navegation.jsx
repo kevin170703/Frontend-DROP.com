@@ -1,34 +1,43 @@
 import React from "react";
 import style from "./Navegation.module.css";
-import { CiSearch, CiCirclePlus, CiCircleList } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 import { BiLeftArrowAlt } from "react-icons/bi";
-import { motion } from "framer-motion";
+import { FaRegUser } from "react-icons/fa";
+import { TbPhoto } from "react-icons/tb";
+import { TbPhotoPlus } from "react-icons/tb";
+import { RiHomeLine } from "react-icons/ri";
 
 export default function Navegation() {
   return (
-    <motion.div
-      className={style.contentAll}
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className={style.contentAll}>
       <NavLink to="/" className={style.buttonBack}>
         <BiLeftArrowAlt size="40" />
       </NavLink>
-      <form action="" className={style.search}>
-        <CiSearch size="40" color="fff" />
-        <input type="text" placeholder="Buscar" />
-      </form>
 
       {/* <div className={style.menus}>
         <CiCircleList size="35" />
         <p>Lista de productos</p>
       </div> */}
-      <NavLink to="/createProduct" className={style.menus}>
-        <CiCirclePlus size="35" />
-        <p>Nuevo</p>
-      </NavLink>
-    </motion.div>
+      <div className={style.contentButtonsData}>
+        <NavLink to="/perfil/:id" className={style.menus}>
+          <FaRegUser size="35" />
+          <p>Perfil</p>
+        </NavLink>
+        <NavLink to="/MyPhoto" className={style.menus}>
+          <TbPhoto size="35" />
+          <p>Mis fotos</p>
+        </NavLink>
+        <NavLink to="/uploadPhoto" className={style.menus}>
+          <TbPhoto size="35" />
+          <p>Subir fotos</p>
+        </NavLink>
+        <div className={style.navegationButtons}>
+          <NavLink to="/" className={style.menus}>
+            <RiHomeLine size="35" />
+            <p>Home</p>
+          </NavLink>
+        </div>
+      </div>
+    </div>
   );
 }
