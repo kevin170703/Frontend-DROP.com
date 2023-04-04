@@ -49,20 +49,24 @@ export default function Login() {
       </div>
       <form action="" className={style.formLogin} onSubmit={(e) => setData(e)}>
         <h6>Iniciar sesion</h6>
+
         <div className={style.contentInputs}>
+          <label htmlFor="">Nombre de usuario</label>
           <input
             type="text"
-            placeholder="Nombre de usuario"
+            // placeholder="Nombre de usuario"
             name="userName"
             value={dataUser.userName}
             onChange={(e) => updateState(e)}
           />
           {errors.userName && <p className={style.errors}>{errors.userName}</p>}
         </div>
+
         <div className={style.contentInputs}>
+          <label htmlFor="">Contraseña</label>
           <input
             type="text"
-            placeholder="Contraseña"
+            // placeholder="Contraseña"
             name="password"
             value={dataUser.password}
             onChange={(e) => updateState(e)}
