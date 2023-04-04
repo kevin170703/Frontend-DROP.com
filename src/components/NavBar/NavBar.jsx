@@ -14,9 +14,6 @@ export default function NavBar() {
         <NavLink to="/" className={style.title}>
           DROP.com
         </NavLink>
-        <NavLink to="/" className={style.navegationLinks}>
-          Inicio
-        </NavLink>
         <NavLink to="/uploadPhoto" className={style.navegationLinks}>
           Empezar
         </NavLink>
