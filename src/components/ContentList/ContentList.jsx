@@ -13,8 +13,6 @@ export default function ContentList() {
   useEffect(() => {
     dispatch(searchProductsforUser(user.id));
   }, []);
-
-  if (!user.email) return <h1>ERROR</h1>;
   return (
     <motion.div
       className={style.contentList}
