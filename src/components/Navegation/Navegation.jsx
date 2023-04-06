@@ -1,14 +1,17 @@
 import React from "react";
 import style from "./Navegation.module.css";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { FaRegUser } from "react-icons/fa";
-import { TbPhoto } from "react-icons/tb";
-import { TbPhotoPlus } from "react-icons/tb";
+import {
+  MdOutlineAddPhotoAlternate,
+  MdOutlineInsertPhoto,
+} from "react-icons/md";
 import { RiHomeLine } from "react-icons/ri";
-import { useSelector } from "react-redux";
 
-export default function Navegation({ perfile, myPhotos, uploadPhotos }) {
+export default function Navegation({ profile, myPhotos, uploadPhotos }) {
   const user = useSelector((state) => state.user);
   return (
     <div className={style.contentAll}>
@@ -18,8 +21,8 @@ export default function Navegation({ perfile, myPhotos, uploadPhotos }) {
 
       <div className={style.contentButtonsData}>
         <NavLink
-          to={`/perfil/${user.id}`}
-          className={perfile ? style.titleLinkActive : style.links}
+          to={`/profile/${user.id}`}
+          className={profile ? style.titleLinkActive : style.links}
         >
           <FaRegUser size="35" />
           <p className={style.titleLink}>Perfil</p>
@@ -28,14 +31,14 @@ export default function Navegation({ perfile, myPhotos, uploadPhotos }) {
           to="/MyPhoto"
           className={myPhotos ? style.titleLinkActive : style.links}
         >
-          <TbPhoto size="35" />
+          <MdOutlineInsertPhoto size="35" />
           <p className={style.titleLink}>Mis fotos</p>
         </NavLink>
         <NavLink
           to="/uploadPhoto"
           className={uploadPhotos ? style.titleLinkActive : style.links}
         >
-          <TbPhoto size="35" />
+          <MdOutlineAddPhotoAlternate size="35" />
           <p>Subir fotos</p>
         </NavLink>
 
