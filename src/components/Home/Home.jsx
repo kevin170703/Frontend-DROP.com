@@ -7,7 +7,6 @@ import NavBar from "../NavBar/NavBar";
 //media
 import { FaLinkedinIn, FaWindows } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
-import { IoIosArrowDown } from "react-icons/io";
 import panelImg from "../../images/panel.png";
 import uploadCard from "../../images/uploadCard.png";
 
