@@ -1,30 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useSelector } from "react-redux";
 import style from "./Home.module.css";
-import Swal from "sweetalert2";
 import NavBar from "../NavBar/NavBar";
 
-//media
-import { FaLinkedinIn, FaWindows } from "react-icons/fa";
+//Images and logos
 import { FiMail } from "react-icons/fi";
+import { FaLinkedinIn } from "react-icons/fa";
 import panelImg from "../../images/panel.png";
 import uploadCard from "../../images/uploadCard.png";
 
 export default function Home() {
-  const user = useSelector((state) => state.user);
-
-  //Animacion scroll
-  const [showTitle, setShowTitle] = useState(true);
+  //Animation scroll
   const titleRef = useRef();
+  const [activateAnimation, setActivateAnimation] = useState(true);
 
   useEffect(() => {
-    const handelScroll = () => {
-      const { y } = titleRef.current.getBoundingClientRect();
-      y > 10 ? setShowTitle(true) : setShowTitle(false);
+    const animationScroll = () => {
+      const title = titleRef.current;
+      const { y } = title.getBoundingClientRect();
+      y > 10 ? setActivateAnimation(true) : setActivateAnimation(false);
     };
-    window.addEventListener("scroll", handelScroll);
-    return () => window.removeEventListener("scroll", handelScroll);
+
+    window.addEventListener("scroll", animationScroll);
+    return () => window.removeEventListener("scroll", animationScroll);
   }, []);
+  //Animation scroll
 
   return (
     <div className={style.contentAll}>
@@ -33,17 +32,23 @@ export default function Home() {
         <div className={style.contentText}>
           <h1
             ref={titleRef}
-            className={showTitle ? style.title : style.titleAnimation}
+            className={activateAnimation ? style.title : style.titleAnimation}
           >
             DROP.com
           </h1>
-          <p className={showTitle ? style.subtitle : style.subtitleAnimation}>
-            Sube tus imagenes de forma rapida para compartirlas en varios
-            dispositivos.
+          <p
+            className={
+              activateAnimation ? style.subtitle : style.subtitleAnimation
+            }
+          >
+            Una plataforma donde podrás subir tus imágenes de forma rápida para
+            compartirlas en varios con dispositivos.
           </p>
         </div>
         <div
-          className={showTitle ? style.contentImg : style.contentImgAnimation}
+          className={
+            activateAnimation ? style.contentImg : style.contentImgAnimation
+          }
         >
           <img src={uploadCard} alt="" />
         </div>
@@ -80,10 +85,10 @@ export default function Home() {
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 1 }}
         >
-          <h6>Panel facil de usar</h6>
+          <h6>Panel fácil de usar</h6>
           <p>
-            Puedes subir, guardar, ver, descargar de manera rapida en un panel
-            comodo de utilizar e intutivo.
+            Puedes subir, guardar, ver y descargar tus imágenes de manera rápida
+            en un panel cómodo e intuitivo.
           </p>
         </div>
         <img src={panelImg} alt="Panel image" className={style.panelImage} />
