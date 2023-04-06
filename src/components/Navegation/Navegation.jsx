@@ -6,8 +6,10 @@ import { FaRegUser } from "react-icons/fa";
 import { TbPhoto } from "react-icons/tb";
 import { TbPhotoPlus } from "react-icons/tb";
 import { RiHomeLine } from "react-icons/ri";
+import { useSelector } from "react-redux";
 
 export default function Navegation({ perfile, myPhotos, uploadPhotos }) {
+  const user = useSelector((state) => state.user);
   return (
     <div className={style.contentAll}>
       <NavLink to="/" className={style.buttonBack}>
@@ -16,7 +18,7 @@ export default function Navegation({ perfile, myPhotos, uploadPhotos }) {
 
       <div className={style.contentButtonsData}>
         <NavLink
-          to="/perfil/:id"
+          to={`/perfil/${user.id}`}
           className={perfile ? style.titleLinkActive : style.links}
         >
           <FaRegUser size="35" />
