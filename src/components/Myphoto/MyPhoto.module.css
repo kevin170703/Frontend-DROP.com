@@ -35,7 +35,7 @@
 .contentImage {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   width: 400px;
   height: 200px;
   border-radius: 15px;
@@ -44,16 +44,18 @@
   margin: 1rem;
 }
 
-.buttonsActions {
+.contentButtonsActions {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 400px;
-  height: 200px;
-  backdrop-filter: brightness(30%) blur(2px);
+  height: 80px;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   position: absolute;
-  border-radius: 15px;
-  display: none;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: flex;
 }
 
 .buttonsAction {
@@ -65,9 +67,22 @@
   margin-left: 1rem;
   border: none;
   cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.contentImage:hover .buttonsActions {
+.buttonDelete {
+  text-decoration: none;
+  color: #fff;
+  background-color: red;
+  border-radius: 15px;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contentImage:hover .contentButtonsActions {
   display: flex;
 }
 

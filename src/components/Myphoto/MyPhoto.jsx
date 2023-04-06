@@ -52,7 +52,7 @@ export default function MyPhoto() {
           ) : (
             <div className={style.contentImage} key={index}>
               <img src={photo.imageUrl} alt="" />
-              <div className={style.buttonsActions}>
+              <div className={style.contentButtonsActions}>
                 <button
                   className={style.buttonsAction}
                   onClick={() => dowloadFile(photo.imageUrl, photo.name)}
@@ -66,6 +66,14 @@ export default function MyPhoto() {
                   }
                 >
                   Ver
+                </button>
+                <button
+                  className={style.buttonDelete}
+                  onClick={() =>
+                    setImageView({ view: true, image: photo.imageUrl })
+                  }
+                >
+                  Eliminar
                 </button>
               </div>
             </div>
