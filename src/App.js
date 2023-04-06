@@ -1,11 +1,12 @@
 import "./App.css";
-import Dashboard from "./components/Dashboard/Dashboard";
 import Home from "./components/Home/Home";
 import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import MyPhoto from "./components/Myphoto/MyPhoto";
 import Upload from "./components/Upload/Upload";
+// import dontenv from "dotenv";
+// dontenv.config();
 
 function App() {
   return (
