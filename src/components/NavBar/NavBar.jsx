@@ -1,15 +1,15 @@
 import React from "react";
 import style from "./NavBar.module.css";
+import Swal from "sweetalert2";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
-import { motion } from "framer-motion";
-import Swal from "sweetalert2";
 
 export default function NavBar() {
   const user = useSelector((state) => state.user);
   const navegation = useNavigate();
-  const alert = () => {
+
+  const alertLogin = () => {
     Swal.fire({
       icon: "info",
       title: "debes iniciar sesion para poder comenzar",
@@ -30,6 +30,7 @@ export default function NavBar() {
         <NavLink to="/" className={style.title}>
           DROP.com
         </NavLink>
+
         {user.id ? (
           <NavLink to="/uploadPhoto" className={style.navegationLinks}>
             Empezar
@@ -38,7 +39,7 @@ export default function NavBar() {
           <NavLink
             to="/"
             className={style.navegationLinks}
-            onClick={() => alert()}
+            onClick={() => alertLogin()}
           >
             Empezar
           </NavLink>
