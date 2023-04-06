@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import style from "./Login.module.css";
+import Swal from "sweetalert2";
 import { NavLink } from "react-router-dom";
 import { login } from "../../redux/action";
 import { useDispatch } from "react-redux";
-import Swal from "sweetalert2";
+
+import { BiLeftArrowAlt } from "react-icons/bi";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -41,6 +43,9 @@ export default function Login() {
   return (
     <div className={style.contentAll}>
       <div className={style.contentImage}>
+        <NavLink to="/">
+          <BiLeftArrowAlt size="30" className={style.buttonBack} />
+        </NavLink>
         <h5>Bienvenido/a de nuevo!</h5>
         <p>Si aun no tienes una cuentra registarada, creala desde aqui.</p>
         <NavLink to="/register" className={style.buutonRegister}>
