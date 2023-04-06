@@ -24,11 +24,11 @@ export default function Upload() {
     data.append("file", image);
     data.append("upload_preset", process.env.REACT_APP_FOLDER_NAME);
     const file = await axios.post(process.env.REACT_APP_API_URL, data);
-    console.log(file.data);
     const obj = {
       image: file.data.url,
       imageName: file.data.original_filename,
       userId: user.id,
+      sizeImage: file.data.bytes.toString(),
     };
     // const imagePreview = URL.createObjectURL(image);
     // setImagenes(imagePreview); //codigo de previsulizacion de imagenes;
