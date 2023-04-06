@@ -1,6 +1,19 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
+export const getImages = (idUser) => {
+  return async function (distpach) {
+    const images = await axios.get(`http://localhost:3001/files/${idUser}`);
+    return distpach({ type: "GET_IMAGES", payload: images.data });
+  };
+};
+
+export const putImages = (data) => {
+  return async function (distpach) {
+    await axios.post(`http://localhost:3001/upload`, data);
+  };
+};
+
 export const register = (data) => {
   return async function (distpach) {
     const user = await axios.post("http://localhost:3001/users/create", data);
@@ -37,26 +50,5 @@ export const login = (data) => {
         title: `${error.response.data.error}`,
       });
     }
-  };
-};
-
-export const searchProductsforUser = (id) => {
-  return async function (distpach) {
-    const { data } = await axios.get(
-      `http://localhost:3001/productsByIdUser/${id}`
-    );
-    return distpach({ type: "SEARCH_PRODUCTS_USER", payload: data });
-  };
-};
-
-export const deleteProduct = (id) => {
-  return async function (distpach) {
-    await axios.delete(`http://localhost:3001/products/${id}`);
-  };
-};
-
-export const createProduct = (data) => {
-  return async function (distpach) {
-    await axios.post(`http://localhost:3001/products`, data);
   };
 };

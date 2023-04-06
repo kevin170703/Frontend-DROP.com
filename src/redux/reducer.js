@@ -2,8 +2,8 @@ const initialState = {
   user: localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
     : {},
-  posts: localStorage.getItem("posts")
-    ? JSON.parse(localStorage.getItem("posts"))
+  images: localStorage.getItem("images")
+    ? JSON.parse(localStorage.getItem("images"))
     : [],
 };
 
@@ -18,8 +18,8 @@ export default function reducer(state = initialState, { type, payload }) {
       return { ...state, user: setInLocalStorage("user", payload) };
     case "LOGIN":
       return { ...state, user: setInLocalStorage("user", payload) };
-    case "SEARCH_PRODUCTS_USER":
-      return { ...state, posts: setInLocalStorage("posts", payload) };
+    case "GET_IMAGES":
+      return { ...state, images: setInLocalStorage("images", payload) };
     default:
       return { ...state };
   }
