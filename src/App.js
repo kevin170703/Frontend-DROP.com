@@ -5,8 +5,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import MyPhoto from "./components/Myphoto/MyPhoto";
 import Upload from "./components/Upload/Upload";
-// import dontenv from "dotenv";
-// dontenv.config();
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -17,6 +16,7 @@ function App() {
         <Route path="/MyPhoto" element={<MyPhoto />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile/:id" element={<Profile />} />
       </Routes>
     </div>
   );
