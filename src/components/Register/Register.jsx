@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import style from "./Register.module.css";
+import Swal from "sweetalert2";
 import { NavLink } from "react-router-dom";
 import { register } from "../../redux/action";
 import { useDispatch } from "react-redux";
-import Swal from "sweetalert2";
+
+import { BiLeftArrowAlt } from "react-icons/bi";
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -25,8 +27,7 @@ export default function Register() {
     const emailRegex =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     const userNameRegex = /^[0-9a-zA-Z]+$/;
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
+    const passwordRegex = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
 
     if (!dataUser.userName)
       errors.userName = "Debe ingresar un nombre de usuario";
@@ -43,9 +44,7 @@ export default function Register() {
           Minimo 8 caracteres Maximo 15 <br />
           Al menos una letra mayúscula <br />
           Al menos una letra minucula <br />
-          Al menos un dígito <br />
           No espacios en blanco <br />
-          Al menos 1 caracter especial
         </p>
       );
 
@@ -69,6 +68,9 @@ export default function Register() {
   return (
     <div className={style.contentAll}>
       <div className={style.contentImage}>
+        <NavLink to="/">
+          <BiLeftArrowAlt size="30" className={style.buttonBack} />
+        </NavLink>
         <h5>Bienvenido/a </h5>
         <p>Si ya tienes una cuanta, inicia sesion aqui.</p>
         <NavLink to="/login" className={style.buutonLogin}>

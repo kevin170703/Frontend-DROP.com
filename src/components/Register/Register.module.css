@@ -18,6 +18,15 @@
   align-items: center;
 }
 
+.buttonBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 3rem;
+  cursor: pointer;
+  color: #fff;
+}
+
 .contentImage h5 {
   font-size: 2rem;
   margin: 1rem 0;
