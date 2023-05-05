@@ -1,67 +1,29 @@
 import React, { useState } from "react";
 import style from "./Register.module.css";
-import Swal from "sweetalert2";
 import { NavLink } from "react-router-dom";
 import { register } from "../../redux/action";
 import { useDispatch } from "react-redux";
-
+import { useValidateErrors } from "../../hooks/useValidateErrors";
 import { BiLeftArrowAlt } from "react-icons/bi";
 
 export default function Register() {
   const dispatch = useDispatch();
+  const { validateErrors, errors } = useValidateErrors();
   const [dataUser, setDataUser] = useState({
     userName: "",
     email: "",
     password: "",
   });
-  const [errors, seterrors] = useState({});
 
-  function updateState(e) {
+  function updateUserData(e) {
     e.preventDefault();
     setDataUser({ ...dataUser, [e.target.name]: e.target.value });
-    seterrors(validations({ ...dataUser, [e.target.name]: e.target.value }));
+    validateErrors({ ...dataUser, [e.target.name]: e.target.value });
   }
 
-  function validations(dataUser) {
-    let errors = {};
-    const emailRegex =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    const userNameRegex = /^[0-9a-zA-Z]+$/;
-    const passwordRegex = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
-
-    if (!dataUser.userName)
-      errors.userName = "Debe ingresar un nombre de usuario";
-    else if (!userNameRegex.test(dataUser.userName))
-      errors.userName = "Solo pude contener numeros y letras";
-
-    if (!dataUser.email) errors.email = "Debe ingresar su correo";
-    else if (!emailRegex.test(dataUser.email)) errors.email = "Email invalido";
-
-    if (!dataUser.password) errors.password = "Debe ingresar una contraseña";
-    else if (!passwordRegex.test(dataUser.password))
-      errors.password = (
-        <p>
-          Minimo 8 caracteres Maximo 15 <br />
-          Al menos una letra mayúscula <br />
-          Al menos una letra minucula <br />
-          No espacios en blanco <br />
-        </p>
-      );
-
-    return errors;
-  }
-
-  function setData(e) {
+  function sendData(e) {
     e.preventDefault();
-    if (
-      dataUser.userName === "" ||
-      dataUser.email === "" ||
-      dataUser.password === ""
-    )
-      return Swal.fire({
-        icon: "error",
-        title: "Algun campo se encuentra incompeto",
-      });
+    validateErrors(dataUser);
     dispatch(register(dataUser));
   }
 
@@ -69,7 +31,7 @@ export default function Register() {
     <div className={style.contentAll}>
       <div className={style.contentImage}>
         <NavLink to="/">
-          <BiLeftArrowAlt size="30" className={style.buttonBack} />
+          <BiLeftArrowAlt size="30" className={style.backButton} />
         </NavLink>
         <h5>Bienvenido/a </h5>
         <p>Si ya tienes una cuanta, inicia sesion aqui.</p>
@@ -78,7 +40,7 @@ export default function Register() {
         </NavLink>
       </div>
 
-      <form action="" className={style.formLogin} onSubmit={(e) => setData(e)}>
+      <form className={style.formLogin} onSubmit={(e) => sendData(e)}>
         <h6>Registrate</h6>
         <div className={style.contentInputs}>
           <input
@@ -86,7 +48,7 @@ export default function Register() {
             placeholder="Nombre de usuario"
             name="userName"
             value={dataUser.userName}
-            onChange={(e) => updateState(e)}
+            onChange={(e) => updateUserData(e)}
           />
           {errors.userName && <p className={style.errors}>{errors.userName}</p>}
         </div>
@@ -96,7 +58,7 @@ export default function Register() {
             placeholder="Correo electronico"
             name="email"
             value={dataUser.email}
-            onChange={(e) => updateState(e)}
+            onChange={(e) => updateUserData(e)}
           />
           {errors.email && <p className={style.errors}>{errors.email}</p>}
         </div>
@@ -106,21 +68,15 @@ export default function Register() {
             name="password"
             value={dataUser.password}
             placeholder="Contraseña"
-            onChange={(e) => updateState(e)}
+            onChange={(e) => updateUserData(e)}
           />
           {errors.password && <p className={style.errors}>{errors.password}</p>}
         </div>
 
         <button
           type="submit"
-          className={
-            !errors.userName &&
-            !errors.email &&
-            !errors.password &&
-            dataUser.userName
-              ? style.buutonRegister
-              : style.buutonRegisteDisable
-          }
+          disabled={errors.exist}
+          className={style.buutonRegister}
         >
           Crear cuenta
         </button>
