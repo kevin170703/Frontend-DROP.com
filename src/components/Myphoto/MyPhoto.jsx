@@ -8,13 +8,12 @@ import CardImage from "../CardImage/CardImage";
 
 export default function MyPhoto() {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  const images = useSelector((state) => state.images);
 
   useEffect(() => {
     dispatch(getImages(user.id));
   }, []);
-
-  const user = useSelector((state) => state.user);
-  const images = useSelector((state) => state.images);
 
   return (
     <div className={style.contentAll}>
