@@ -14,7 +14,6 @@ export default function Login() {
     password: "",
   });
   const [errors, seterrors] = useState({});
-
   function updateState(e) {
     e.preventDefault();
     setDataUser({ ...dataUser, [e.target.name]: e.target.value });
