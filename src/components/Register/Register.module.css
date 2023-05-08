@@ -37,7 +37,7 @@
   width: 60%;
 }
 
-.buutonLogin {
+.buttonLogin {
   color: #222;
   font-size: 1.3rem;
   text-decoration: none;
@@ -51,7 +51,7 @@
 
 /* ----------------------------------------- */
 
-.formLogin {
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,7 +59,7 @@
   width: 60%;
 }
 
-.formLogin h6 {
+.form h6 {
   font-size: 2rem;
   color: rgb(46, 52, 57);
 }

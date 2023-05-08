@@ -8,7 +8,7 @@ import { BiLeftArrowAlt } from "react-icons/bi";
 
 export default function Register() {
   const dispatch = useDispatch();
-  const { validateErrors, errors } = useValidateErrors();
+  const { validateErrorsRegister, errors } = useValidateErrors();
   const [dataUser, setDataUser] = useState({
     userName: "",
     email: "",
@@ -18,12 +18,11 @@ export default function Register() {
   function updateUserData(e) {
     e.preventDefault();
     setDataUser({ ...dataUser, [e.target.name]: e.target.value });
-    validateErrors({ ...dataUser, [e.target.name]: e.target.value });
+    validateErrorsRegister({ ...dataUser, [e.target.name]: e.target.value });
   }
 
   function sendData(e) {
     e.preventDefault();
-    validateErrors(dataUser);
     dispatch(register(dataUser));
   }
 
@@ -35,12 +34,12 @@ export default function Register() {
         </NavLink>
         <h5>Bienvenido/a </h5>
         <p>Si ya tienes una cuanta, inicia sesion aqui.</p>
-        <NavLink to="/login" className={style.buutonLogin}>
+        <NavLink to="/login" className={style.buttonLogin}>
           Iniciar sesion
         </NavLink>
       </div>
 
-      <form className={style.formLogin} onSubmit={(e) => sendData(e)}>
+      <form className={style.form} onSubmit={(e) => sendData(e)}>
         <h6>Registrate</h6>
         <div className={style.contentInputs}>
           <input
