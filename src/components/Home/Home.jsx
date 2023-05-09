@@ -26,7 +26,7 @@ export default function Home() {
   //Animation scroll
 
   return (
-    <div className={style.contentAll}>
+    <main className={style.contentAll}>
       <NavBar />
       <div className={style.contentPresentation}>
         <div className={style.contentText}>
@@ -77,7 +77,7 @@ export default function Home() {
 
       {/* /-------------Info-------------------------/ */}
 
-      <div className={style.info}>
+      <section className={style.info}>
         <div
           className={style.contentInfo}
           initial={{ opacity: 0, y: 50 }}
@@ -92,7 +92,7 @@ export default function Home() {
           </p>
         </div>
         <img src={panelImg} alt="Panel image" className={style.panelImage} />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
