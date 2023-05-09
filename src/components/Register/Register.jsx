@@ -27,7 +27,7 @@ export default function Register() {
   }
 
   return (
-    <div className={style.contentAll}>
+    <main className={style.contentAll}>
       <div className={style.contentImage}>
         <NavLink to="/">
           <BiLeftArrowAlt size="30" className={style.backButton} />
@@ -41,7 +41,7 @@ export default function Register() {
 
       <form className={style.form} onSubmit={(e) => sendData(e)}>
         <h6>Registrate</h6>
-        <div className={style.contentInputs}>
+        <label className={style.contentInputs}>
           <input
             type="text"
             placeholder="Nombre de usuario"
@@ -50,8 +50,8 @@ export default function Register() {
             onChange={(e) => updateUserData(e)}
           />
           {errors.userName && <p className={style.errors}>{errors.userName}</p>}
-        </div>
-        <div className={style.contentInputs}>
+        </label>
+        <label className={style.contentInputs}>
           <input
             type="text"
             placeholder="Correo electronico"
@@ -60,8 +60,8 @@ export default function Register() {
             onChange={(e) => updateUserData(e)}
           />
           {errors.email && <p className={style.errors}>{errors.email}</p>}
-        </div>
-        <div className={style.contentInputs}>
+        </label>
+        <label className={style.contentInputs}>
           <input
             type="text"
             name="password"
@@ -70,7 +70,7 @@ export default function Register() {
             onChange={(e) => updateUserData(e)}
           />
           {errors.password && <p className={style.errors}>{errors.password}</p>}
-        </div>
+        </label>
 
         <button
           type="submit"
@@ -80,6 +80,6 @@ export default function Register() {
           Crear cuenta
         </button>
       </form>
-    </div>
+    </main>
   );
 }
