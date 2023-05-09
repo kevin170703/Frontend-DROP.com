@@ -25,8 +25,8 @@ export default function NavBar() {
   };
 
   return (
-    <div className={style.contentAll}>
-      <div className={style.contentNavegation}>
+    <header className={style.contentAll}>
+      <nav className={style.contentNavegation}>
         <NavLink to="/" className={style.title}>
           DROP.com
         </NavLink>
@@ -44,7 +44,7 @@ export default function NavBar() {
             Empezar
           </NavLink>
         )}
-      </div>
+      </nav>
 
       {user.email ? (
         <NavLink to={`/profile/${user.id}`}>
@@ -60,6 +60,6 @@ export default function NavBar() {
           </NavLink>
         </div>
       )}
-    </div>
+    </header>
   );
 }
