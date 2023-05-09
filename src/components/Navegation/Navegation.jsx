@@ -3,23 +3,24 @@ import style from "./Navegation.module.css";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
+//Icons
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { FaRegUser } from "react-icons/fa";
+import { RiHomeLine } from "react-icons/ri";
 import {
   MdOutlineAddPhotoAlternate,
   MdOutlineInsertPhoto,
 } from "react-icons/md";
-import { RiHomeLine } from "react-icons/ri";
 
 export default function Navegation({ profile, myPhotos, uploadPhotos }) {
   const user = useSelector((state) => state.user);
   return (
-    <div className={style.contentAll}>
+    <header className={style.contentAll}>
       <NavLink to="/" className={style.buttonBack}>
         <BiLeftArrowAlt size="40" />
       </NavLink>
 
-      <div className={style.contentButtonsData}>
+      <nav className={style.contentButtonsData}>
         <NavLink
           to={`/profile/${user.id}`}
           className={profile ? style.titleLinkActive : style.links}
@@ -48,7 +49,7 @@ export default function Navegation({ profile, myPhotos, uploadPhotos }) {
             <p className={style.titleLink}>Home</p>
           </NavLink>
         </div>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 }
