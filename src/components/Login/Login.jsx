@@ -26,8 +26,8 @@ export default function Login() {
   }
 
   return (
-    <div className={style.contentAll}>
-      <div className={style.contentImage}>
+    <main className={style.contentAll}>
+      <section className={style.contentImage}>
         <NavLink to="/">
           <BiLeftArrowAlt size="30" className={style.backButton} />
         </NavLink>
@@ -36,29 +36,33 @@ export default function Login() {
         <NavLink to="/register" className={style.buttonRegister}>
           Registrarme
         </NavLink>
-      </div>
+      </section>
 
       <form action="" className={style.form} onSubmit={(e) => setData(e)}>
         <h6>Iniciar sesion</h6>
 
         <div className={style.contentInputs}>
-          <label>Nombre de usuario</label>
-          <input
-            type="text"
-            name="userName"
-            value={dataUser.userName}
-            onChange={(e) => updateUserData(e)}
-          />
+          <label>
+            <input
+              type="text"
+              name="userName"
+              placeholder="Nombre de usuario"
+              value={dataUser.userName}
+              onChange={(e) => updateUserData(e)}
+            />
+          </label>
         </div>
 
         <div className={style.contentInputs}>
-          <label>Contraseña</label>
-          <input
-            type="text"
-            name="password"
-            value={dataUser.password}
-            onChange={(e) => updateUserData(e)}
-          />
+          <label>
+            <input
+              type="text"
+              name="password"
+              placeholder="Constraseña"
+              value={dataUser.password}
+              onChange={(e) => updateUserData(e)}
+            />
+          </label>
         </div>
 
         <button
@@ -69,6 +73,6 @@ export default function Login() {
           Iniciar sesion
         </button>
       </form>
-    </div>
+    </main>
   );
 }
